@@ -1,0 +1,150 @@
+<%- include('header-employee'); %>
+
+<main>
+    <h1>PORTALE DIPENDENTI</h1>
+    <div class="border rounded">
+        <div class="d-flex flex-wrap justify-content-around">
+            <div class="d-flex flex-column">
+                <form action="/car-info" method="GET">
+                    <h2 class="w100">CERCA VEICOLO</h2>
+                    <h3>PER TARGA</h3>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-car-front logo16" viewBox="0 0 16 16">
+                                <path d="M4 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm10 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2H6ZM4.862 4.276 3.906 6.19a.51.51 0 0 0 .497.731c.91-.073 2.35-.17 3.597-.17 1.247 0 2.688.097 3.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5 0 0 0 10.691 4H5.309a.5.5 0 0 0-.447.276Z"/>
+                                <path d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679c.033.161.049.325.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.807.807 0 0 0 .381-.404l.792-1.848ZM4.82 3a1.5 1.5 0 0 0-1.379.91l-.792 1.847a1.8 1.8 0 0 1-.853.904.807.807 0 0 0-.43.564L1.03 8.904a1.5 1.5 0 0 0-.03.294v.413c0 .796.62 1.448 1.408 1.484 1.555.07 3.786.155 5.592.155 1.806 0 4.037-.084 5.592-.155A1.479 1.479 0 0 0 15 9.611v-.413c0-.099-.01-.197-.03-.294l-.335-1.68a.807.807 0 0 0-.43-.563 1.807 1.807 0 0 1-.853-.904l-.792-1.848A1.5 1.5 0 0 0 11.18 3H4.82Z"/>
+                            </svg>
+                        </span>
+                        </div>
+                        <select class="form-control" name="plateId" id="plateSelect">
+                            <option>Seleziona una auto</option>
+                            <% cars.forEach((car) => { %>
+                                <option value="<%= car.PLATE_ID %>"><%= car.PLATE_ID %> - <%= car.BRAND %> <%= car.NAME %></option>
+                            <% }); %>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary w50 ml25">Cerca veicolo</button>
+                </form>
+            </div>
+
+            <div class="d-flex flex-column justify-content-centre">
+                <form action="/user-info" method="GET">
+                    <h2>CERCA UTENTE </h2>
+                    <h3>PER EMAIL</h3>
+                    <div class="input-group mb-4">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-person-vcard logo16" viewBox="0 0 16 16">
+                                <path d="M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm4-2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5ZM9 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 9 8Zm1 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Z"/>
+                                <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H8.96c.026-.163.04-.33.04-.5C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1.006 1.006 0 0 1 1 12V4Z"/>
+                            </svg>
+                        </span>
+                        </div>
+                        <select class="form-control" name="email" id="emailSelect">
+                            <option>Seleziona un utente</option>
+                            <% users.forEach((user) => { %>
+                                <option value="<%= user.EMAIL %>"><%= user.EMAIL %> - <%= user.nome %> <%= user.cognome %></option>
+                            <% }); %>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary w50 ml25">Cerca utente</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+    
+    <div class="border rounded">
+        <h2>AGGIUNGI VEICOLO</h2>
+        <form method="post" action="/employee-search/addcar">
+            <div class="d-flex flex-toggle">
+                
+                <%- include('responsive-select') %>
+
+                <div class="input-group mb-3 p-1">
+                    <span class="input-group-text" id="basic-addon1">Targa: </span>
+                    <input type="text" class="form-control" name="plateId" placeholder="Targa" aria-label="Username" aria-describedby="basic-addon1" >
+                </div>
+            </div>
+
+            <br>
+
+            <button type="submit" class="btn btn-outline-primary w50 ml25">Aggiungi veicolo</button>
+        </form>
+    </div>
+    
+    <br>
+    <!--brand, name, seats, doors, transmission, description, cost, completeDescription-->
+    <div class="border rounded">
+        <h2>AGGIUNGI MODELLO</h2>
+        <form method="post" action="/employee-search/addmodel" enctype="multipart/form-data">
+            <div>
+                <div class="ml50">
+                    <div id="img-preview"></div>
+                    <input type="file" id="photo" name="photo" accept="image/png" />
+                    <label for="photo">Scegli immagine</label>
+                </div>
+                
+                <div>
+                    <div class="d-flex">
+                        <div class="input-group mb-3 p-1">
+                            <span class="input-group-text" id="basic-addon1">Brand: </span>
+                            <input type="text" class="form-control" name="brand" placeholder="BRAND" aria-label="Username" aria-describedby="basic-addon1" >
+                        </div>
+                        <div class="input-group mb-3 ml-3 p-1">
+                            <span class="input-group-text" id="basic-addon1">Nome: </span>
+                            <input type="text" class="form-control" name="name" placeholder="Modello" aria-label="Username" aria-describedby="basic-addon1" >
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-around">
+                        <div class="input-group mb-3 p-1">
+                            <span class="input-group-text" id="basic-addon1">Posti: </span>
+                            <input type="number" class="form-control" name="seats" aria-label="Username" aria-describedby="basic-addon1" >
+                        </div>
+
+                        <div class="input-group mb-3 p-1">
+                            <span class="input-group-text" id="basic-addon1">Porte: </span>
+                            <input type="number" class="form-control" name="doors" aria-label="Username" aria-describedby="basic-addon1" >
+                        </div>
+
+                        <div class="input-group mb-3 p-1">
+                            <span class="input-group-text" id="basic-addon1">Trasmissione: </span>
+                            <select class="form-control" name="transmission">
+                                <option></option>
+                                <option value="M">Manuale</option>
+                                <option value="S">Sequenziale</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3 p-1">
+                            <span class="input-group-text" id="basic-addon1">Costo/gg: </span>
+                            <input type="number" class="form-control" name="cost" aria-label="Username" aria-describedby="basic-addon1" >
+                            <span class="input-group-text" id="basic-addon1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-euro" viewBox="0 0 16 16">
+                                    <path d="M4 9.42h1.063C5.4 12.323 7.317 14 10.34 14c.622 0 1.167-.068 1.659-.185v-1.3c-.484.119-1.045.17-1.659.17-2.1 0-3.455-1.198-3.775-3.264h4.017v-.928H6.497v-.936c0-.11 0-.219.008-.329h4.078v-.927H6.618c.388-1.898 1.719-2.985 3.723-2.985.614 0 1.175.05 1.659.177V2.194A6.617 6.617 0 0 0 10.341 2c-2.928 0-4.82 1.569-5.244 4.3H4v.928h1.01v1.265H4v.928z"/>
+                                  </svg>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Descrizione: </span>
+                        <input type="text" class="form-control" name="description" placeholder="Descrizione" aria-label="Username" aria-describedby="basic-addon1" >
+                    </div>
+                    
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Descizione completa: </span>
+                        <textarea rows="3" class="form-control" name="completeDescription" placeholder="Descrizione completa" aria-label="Username" aria-describedby="basic-addon1"></textarea>
+                    </div>
+                </div>
+            </div>
+                 
+            <button type="submit" class="btn btn-outline-primary w50 ml25">Aggiungi modello</button>
+        </form>
+    </div>
+    <script type="text/javascript" src="/javascripts/imageEL.js"></script>
+</main>
+
+<%- include('footer'); %>

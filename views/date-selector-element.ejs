@@ -1,0 +1,44 @@
+<!--formden.js communicates with FormDen server to validate fields and submit via AJAX -->
+<script type="text/javascript" src="https://formden.com/static/cdn/formden.js"></script>
+
+<!-- Special version of Bootstrap that is isolated to content wrapped in .bootstrap-iso -->
+<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+
+<!--Font Awesome (added because you use icons in your prepend/append)-->
+<link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
+
+
+<div class="input-group mb-3 date-input">
+    <span class="input-group-text" id="basic-addon1">
+        <% if(label == 'dafault'){ %>
+            <i class="fa fa-calendar"></i>
+        <% } else { %>
+            <%= label %>
+        <% } %>
+    </span>
+
+    <input type="date" class="form-control" name="<%= name %>" placeholder="data" aria-label="Username" aria-describedby="basic-addon1" >
+</div>
+
+
+<!-- Extra JavaScript/CSS added manually in "Settings" tab -->
+    <!-- Include jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+      
+      <!-- Include Date Range Picker -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    
+
+    <script>
+        $(document).ready(function(){
+            var date_input=$('input[id="date"]'); //our date input has the name "date"
+            var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+            date_input.datepicker({
+                format: 'dd/mm/yyyy',
+                container: container,
+                todayHighlight: true,
+                autoclose: true,
+            })
+        })
+    </script>
+

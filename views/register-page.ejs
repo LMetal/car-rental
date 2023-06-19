@@ -1,0 +1,48 @@
+<%- include('header'); -%>
+
+<main>
+      <div class="border rounded">
+            <div class="d-flex flex-column align-items-center">
+                <h1>REGISTRATI</h1>
+                <form method="POST", action="/register">
+                    <div class="d-flex">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Nome: </span>
+                            <input type="text" class="form-control" name="nome" placeholder="nome" aria-label="Username" aria-describedby="basic-addon1" >
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Cognome: </span>
+                            <input type="text" class="form-control" name="cognome" placeholder="cognome" aria-label="Username" aria-describedby="basic-addon1" >
+                        </div>
+                    </div>
+                    
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Email: </span>
+                        <input type="email" class="form-control" name="email" placeholder="email" aria-label="Username" aria-describedby="basic-addon1" >
+                    </div>
+
+                    <%- include('date-selector-element', {label: 'Data di nascita: ', name: 'date'}); %>
+
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Password: </span>
+                        <input type="password" class="form-control" name="pass1" placeholder="password" aria-label="Username" aria-describedby="basic-addon1" >
+                      </div>
+                      
+                    
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Ripeti la password: </span>
+                        <input type="password" class="form-control" name="pass2" placeholder="password" aria-label="Username" aria-describedby="basic-addon1" >
+                    </div>
+
+                    <button type="submit" class="btn btn-default-blue w50 ml25">REGISTRATI</button>
+                    
+                </form>
+            </div>
+      </div> 
+
+    
+
+</main>
+
+<%- include('footer'); %>

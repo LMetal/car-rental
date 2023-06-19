@@ -1,0 +1,10 @@
+CREDENZIALI UTENTI:
+USERNAME				PASSWORD
+utente@gmail.com		Utente000
+leoga@gmail.com			Leoga123
+
+
+CREDENZIALI DIPENDENTI
+ID			PASSWORD
+1111		0000
+2002		Password

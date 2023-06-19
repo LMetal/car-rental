@@ -1,0 +1,102 @@
+<%- include('header') %>
+
+<main class="book">
+    <div class="border rounded-bottom">
+        <form action="/book" method="post">
+            <div class="d-flex wrap-toggle">
+                <div class="p-2 ">
+                    <img src="/images/cars/<%= car.brand %>-<%= car.name %>.png" id="car-img" class="w100">
+                </div>
+                
+                <div class="d-flex flex-column flex-wrap">
+                    
+                    <div class="p-3">
+                        <h1><%= car.brand %> <%= car.name %></h1>
+                    </div>
+
+                
+
+                    <% if(optionals == null) { %>
+                        <h2>NESSUN OPTIONAL DISPONIBILE</h2>
+                    <% } else { %>
+                        <h5>SELEZIONA GLI OPTIONAL costo/giorno</h5>
+                        <% optionals.forEach((optional) => { %>
+                            <%- include('optional-element', {optional}) %>
+                        <% }); %>
+                    <% } %>  
+                    
+                </div>
+                <article>
+                    <div class="border rounded">
+                        <table>
+                            <tr>
+                                <th colspan="3"><h3>Totale per <%= moment(date2).diff(moment(date1), 'days') %> giorni</h3></th>
+                            </tr>
+
+                            <tr>
+                                <td><h5>AFFITTO:</h5></td>
+                                <td><h3 class="ml"><%= moment(date2).diff(moment(date1), 'days') * car.cost; %>€</h3></td>
+                                <td><h3 class="ml">+</h3></td>
+                            </tr>
+
+                            <tr>
+                                <td><h5>OPTIONAL:</h5></td>
+                                <td><h3><span id="optionalSum">0</span>€</h3></td>
+                                <td><h3>=</h3></td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="3"><div class="border-top my-3 border-4"></div></td>
+                            </tr>
+
+                            <tr>
+                                <td><h5>TOTALE:</h5></td>
+                                <td><h3><span id="totalSum"><%= moment(date2).diff(moment(date1), 'days') * car.cost; %></span>€</h3></td>
+                            </tr>
+                        </table>
+                        <br>
+                        
+
+                        <button class="btn btn-default-green" type="submit">COMPLETA PRENOTAZIONE</button>
+                        
+                        
+                    </div>
+                </article>
+            </div>
+
+            <div class="p-1"><h6>INFORMAZIONI</h6></div>
+            <div class="d-flex justify-content-between">
+                <div class="d-flex flex-column info-flex">
+                    
+                    <div class="p-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="#5DD39E" class="bi bi-person-fill logo25" viewBox="0 0 16 16">
+                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                            </svg>
+                        <label><%= car.seats %> Posti</label>
+                    </div>
+                    
+                    <div class="p-1">
+                        <img src="/images/logo-porta-green.png" class="logo25">
+                        <label><%= car.doors %> Porte</label>
+                    </div>
+    
+                    <div class="p-1">
+                        <img src="/images/gear-green.png" class="logo25">
+                        <label><%= car.transmission %>
+                            <% if(car.transmission == 'M') { %>
+                                Trasmissione Manuale
+                            <% } else { %>
+                                Trasmissione Automatica Sequenziale
+                            <% } %>
+                        </label>
+                    </div>
+                </div>
+                <p class="descrizione">
+                    <%= car.completeDescription %>
+                </p>
+            </div>
+        </form>
+    </div>
+    <script src="/javascripts/optionalEL.js" data-models="<%= JSON.stringify({days: moment(date2).diff(moment(date1), 'days'), affitto: moment(date2).diff(moment(date1), 'days') * car.cost}) %>"></script>
+</main>
+<%- include('footer') %>

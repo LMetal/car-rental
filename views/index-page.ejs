@@ -1,0 +1,67 @@
+<%- include('header') %>
+
+<main class="index">
+    
+    <div class="container-fluid sfondo-image">
+        <form action="/search" method="GET">
+            <div class="d-flex date-flex justify-content-around">
+                <div class="p-1 w40">
+                    <div class="d-flex flex-column justify-content-center">
+                        <div class="p-1">
+                            <h2>Data inizio affitto</h2>
+                        </div>
+                        <%- include('date-selector-element', {name: 'date1', label: 'dafault'}); -%>
+                    </div>
+                </div>
+                
+
+                <div class="p-1 w40">
+                    <div class="d-flex flex-column justify-content-center">
+                        <div class="p-1">
+                            <h2>Data fine affitto</h2>
+                        </div>
+                        <%- include('date-selector-element', {name: 'date2', label: 'dafault'}); -%>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="d-flex justify-content-center">
+                <div class="form-group">
+                    <a href="/search">
+                        <button class="btn btn-default-by" type="submit">CERCA ORA UN VEICOLO</button>
+                    </a>
+                </div>
+            </div>
+    
+            
+        </form>
+    </div>
+    <br>
+    <h2>Fatti ispirare dalle nostre offerte</h2>
+    <div class="d-flex flex-wrap offerte justify-content-center">
+        <%- include('offerta-element', {brand:'FIAT', name: 'Panda'}); %>
+        <%- include('offerta-element', {brand:'ALFA ROMEO', name: 'Giulia'}); %>
+    </div>
+
+
+    <!--
+    <div class="d-flex flex-wrap mappa-recensioni">
+        <%- include('map-element'); %>
+
+        <%- include('reviews-element'); %>
+    </div>
+    -->
+    
+    <br><br>
+    <div class="d-flex flex-wrap mappa-recensioni">
+        <%- include('map-element'); %>
+    
+        <%- include('reviews-element'); %>
+    </div>
+    
+
+    
+</main>
+
+<%- include('footer'); -%>

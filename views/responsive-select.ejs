@@ -1,0 +1,16 @@
+<!--event listener for model search-->
+<script src="/javascripts/modelEL.js" data-models="<%= JSON.stringify(models) %>"></script>
+<script src="/javascripts/brandLOAD.js" data-models="<%= JSON.stringify(models) %>"></script>
+
+<div class="input-group mb-3 p-1">
+    <select class="form-control" name="brand" id="brandSelect" onchange="updateModels()">
+        <option>Seleziona una marca</option>
+        <!--JS fills this (fillBrands)-->
+    </select>
+    
+    <select class="form-control" name="name" id="modelSelect" disabled>
+        <option>Seleziona prima una marca</option>
+        <!--JS fills this (updateModels)-->
+    </select>
+</div>
+

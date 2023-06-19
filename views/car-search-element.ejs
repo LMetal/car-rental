@@ -1,0 +1,58 @@
+<div class="border rounded">
+    <div class="d-flex flex-wrap">
+        <div class="p-1">
+            <img class="car-image" src="/images/cars/<%= model.brand %>-<%= model.name %>.png" height="150">
+        </div>
+        
+        <div class="p-1">
+            <div class="d-flex flex-column align-items-top">
+            <div class="p-1"><h2><%= model.brand %> <%= model.name %></h2></div>
+            <div class="align-self-right p-3"><%= model.description %></div>
+            
+        </div>
+        </div>
+        
+
+       
+        <div class="p-1 ms-auto">
+            <div class="d-flex flex-column">
+                <div class="p-1"><h6>INFORMAZIONI</h6></div>
+                
+                <div class="p-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="#5DD39E" class="bi bi-person-fill logo25" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                        </svg>
+                    <label><%= model.seats %></label>
+                </div>
+                
+                <div class="p-1">
+                    <img src="/images/logo-porta-green.png" class="logo25">
+                    <label><%= model.doors %></label>
+                </div>
+
+                <div class="p-1">
+                    <img src="/images/gear-green.png" class="logo25">
+                    <label><%= model.transmission %></label>
+                </div>
+            </div>
+        </div>
+        
+        
+
+        <div class="p-2">
+            <div class="d-flex flex-column">
+                <div class="p-2">
+                    <h4><%= model.cost %>€/giorno</h4>
+                </div>
+
+                <div class="p-2">
+                    <form action="/book" method="GET">
+                        <input type="hidden" name="brand" value="<%= model.brand %>">
+                        <input type="hidden" name="name" value="<%= model.name %>">
+                        <button class="btn btn-default-green" type="submit">PRENOTA ORA</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

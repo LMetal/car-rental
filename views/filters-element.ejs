@@ -1,0 +1,86 @@
+
+    <nav class="flex-shrink-0 p-3 bg-white">
+        <ul class="list-unstyled ps-0">
+            <form action="/search/model" method="GET">
+                <h3 class="my-1 text-center">CERCA UN MODELLO</h3>
+                <li class="mb-1">
+                    <h4 class="my-1 text-center">Cerca un modello</h4>
+                    <div class="d-flex">
+
+                        <%- include('responsive-select'); %>
+                        
+                    </div>
+                    <br>
+                
+                    <li class="mb-1 center-button">
+                        <button class="btn btn-default-blue w60" type="submit">CERCA</button>
+                    </li>
+                </li>
+            </form>
+
+            <li class="border-top my-3 border-4"></li>
+
+            <form action="/search/filter" method="GET">
+                <h3 class="my-1 text-center">FILTRI</h3>
+                <li class="mb-1">
+                    <div class="row justify-content-center">
+                        <h4 class="my-1 text-center">Posti</h4>
+                        <label class="control control--checkbox">2
+                            <input type="checkbox" name="seats2" checked>
+                            <div class="control__indicator"></div>
+                        </label>
+    
+                        <label class="control control--checkbox">5
+                            <input type="checkbox" name="seats5" checked>
+                            <div class="control__indicator"></div>
+                        </label>
+                    </div>
+                </li>
+    
+                <li class="border-top my-3"></li>
+                
+                <li class="mb-1">
+                    <div class="row justify-content-center">
+                        <h4 class="my-1 text-center">Porte</h4>
+                        <label class="control control--checkbox">2
+                            <input type="checkbox" name="doors2" checked>
+                            <div class="control__indicator"></div>
+                        </label>
+                        
+                        <label class="control control--checkbox">4
+                            <input type="checkbox" name="doors4" checked>
+                            <div class="control__indicator"></div>
+                        </label>
+    
+                        <label class="control control--checkbox">5
+                            <input type="checkbox" name="doors5" checked>
+                            <div class="control__indicator"></div>
+                        </label>
+                    </div>
+                </li>
+    
+                <li class="border-top my-3"></li>
+    
+                <li class="mb-1">
+                    <h4 class="my-1 text-center">Prezzo massimo / giorno</h4>
+                        <div class="form-group row">
+                        <div class="col-md-10">
+                            <input type="range" min="35" max="80" value="80" class="form-control-range range-slider" id="priceRange" name="maxPrice">
+                        </div>
+                        <div class="col-md-1">
+                            <span id="outputRange">0</span>
+                        </div>
+                        </div>
+                </li>
+
+                <br>
+                
+                <li class="mb-1 center-button">
+                    <button class="btn btn-default-blue w60" type="submit">FILTRA</button>
+                </li>
+            </form>
+
+        </ul>
+    </nav>
+
+    <script src="/javascripts/rangeEL.js"></script>

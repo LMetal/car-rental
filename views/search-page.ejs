@@ -1,0 +1,38 @@
+<%- include('header'); -%>
+
+        <main class="ricerca">
+            <div class="row w100">
+                
+                <aside class="col-4 filter-aside">
+                    <%- include('filters-element', {buttonShow: true, models}); %>
+                </aside>
+                
+                <div class="col-8">
+                    <h1 style="padding: 20px;">SOLUZIONI</h1>
+                    <div class="d-flex justify-content-center">
+                        <!--- include('date-selector-element', {name: 'date1', label: 'dafault', date:date1}); -%> -->
+                        <h3><%= moment(date1).format('DD/MM/YYYY') %> </h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#0D3B66" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                        </svg>
+                        <h3> <%= moment(date2).format('DD/MM/YYYY') %></h3>
+                        <!--- include('date-selector-element', {name: 'date2', label: 'dafault', date: date2}); -%> -->
+                    </div>
+                      
+                    
+                    <% if(modelsToShow.length == 0) { %>
+                        <h2>Nessuna auto trovata</h2>
+                    <% } else { %>
+                        <% modelsToShow.forEach((model) => { %>
+                            <%- include('car-search-element', {model}); -%>
+                            <br>
+                        <% }); %>
+                    <% } %>
+                    
+                    
+                </div>
+            </div>            
+
+        </main>
+
+    <%- include('footer'); %>
