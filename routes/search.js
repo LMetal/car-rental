@@ -1,8 +1,8 @@
 'use strict';
 
-var express = require('express');
-var moment = require('moment');
-var router = express.Router();
+const express = require('express');
+const moment = require('moment');
+const router = express.Router();
 const dao = require('../models/dao');
 const filters = require('../filters');
 

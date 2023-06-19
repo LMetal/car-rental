@@ -1,7 +1,7 @@
 'use strict';
 
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const dao = require('../models/dao');
 const userDao = require('../models/userDao');
 const fileUpload = require('express-fileupload');

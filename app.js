@@ -1,10 +1,10 @@
 'use strict';
 
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
@@ -13,13 +13,13 @@ const fileUpload = require('express-fileupload');
 const userDao = require('./models/userDao.js');
 
 const indexRouter = require('./routes/index');
-var searchRouter = require('./routes/search');
-var loginRouter = require('./routes/sessions');
-var registerRouter = require('./routes/register');
-var carInfoRouter = require('./routes/car-info');
-var userInfoRouter = require('./routes/user-info');
-var employeeSearchRouter = require('./routes/employee-search');
-var bookCarRouter = require('./routes/book')
+const searchRouter = require('./routes/search');
+const loginRouter = require('./routes/sessions');
+const registerRouter = require('./routes/register');
+const carInfoRouter = require('./routes/car-info');
+const userInfoRouter = require('./routes/user-info');
+const employeeSearchRouter = require('./routes/employee-search');
+const bookCarRouter = require('./routes/book')
 const { Passport } = require('passport');
 
 

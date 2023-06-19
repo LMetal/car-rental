@@ -1,5 +1,5 @@
-var range = document.getElementById("priceRange");
-var output = document.getElementById("outputRange");
+const range = document.getElementById("priceRange");
+const output = document.getElementById("outputRange");
 output.innerHTML = range.value;
 
 // Update valore mostrato
