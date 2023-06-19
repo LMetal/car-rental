@@ -1,10 +1,27 @@
 
 /*general */
+@font-face {
+    font-family: Nexa;
+    src: url('Nexa-ExtraLight.ttf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: NexaBold;
+    src: url('Nexa-Heavy.ttf');
+    font-weight: bold;
+}
+
+b{
+    font-family: NexaBold;
+}
+
 body, .container-fluid{
     font-family: 'Nexa';
 }
 
 h1, h2, h3, h4, h5{
+    font-family: NexaBold;
     color: #0D3B66;
 }
 
@@ -65,7 +82,8 @@ article{
 .btn-default-green{
     background-color: #5DD39E;
     color: #0D3B66;
-    font-weight: bold;
+    font-family: NexaBold;
+
 }
 
 .btn-default-yellow{
@@ -79,6 +97,7 @@ article{
     font-size: x-large;
     font-weight: bold;
     padding: 10px;
+    font-family: NexaBold;
 }
 
 .sfondo-image{
