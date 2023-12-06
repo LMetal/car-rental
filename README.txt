@@ -14,5 +14,18 @@ ID			PASSWORD
 2002		Password
 
 
+LIBRARY USED:
+SSR
+Passport
+Moment
+SQLite
+BCript
+
+
+LANGUAGES USED:
+HTML-CSS
+Bootstrap
+JS
+
 Unstable Demo Deployed at
 https://car-rental.cyclic.app
