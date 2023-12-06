@@ -26,6 +26,7 @@ LANGUAGES USED:
 HTML-CSS
 Bootstrap
 JS
+EJS
 
 Unstable Demo Deployed at
 https://car-rental.cyclic.app
