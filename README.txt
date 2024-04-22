@@ -20,11 +20,11 @@ Passport
 Moment
 SQLite
 BCript
+Bootstrap
 
 
 LANGUAGES USED:
-HTML-CSS
-Bootstrap
+HTML-CSS
 JS
 EJS
 
